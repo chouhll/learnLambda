@@ -2,9 +2,7 @@ package com.atguigu1;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class TestLambda {
 
@@ -49,15 +47,30 @@ public class TestLambda {
     }
 
 
+
 //需求： 对于两个Long 型的数据进行处理
+
 
     @Test
     public void test3(){
-//    op(100L, 200L, (x, y) ->  x+y);
-//    op(100L, 200L, (x, y) -> x * y);
+    op(100L, 200L, (x, y) ->  x+y);
+    op(100L, 200L, (x, y) -> x * y);
     }
 
     public void op(Long l1, Long l2, MyFunction2<Long, Long> mf){
         System.out.println(mf.getValue(l1, l2));
+    }
+
+
+    @Test
+    public void tst1(){
+        Comparator<Integer> com = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o1, o2);
+            }
+        };
+
+        TreeSet<Integer> ts = new TreeSet<>(com);
     }
 }
